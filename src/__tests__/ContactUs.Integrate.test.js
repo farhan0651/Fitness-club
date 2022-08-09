@@ -43,7 +43,7 @@ const contactUsEntry =
     { firstName: "Harshit", lastName: "Kishor", email: "harshit+1000@mail.com", mobile: "34434322213", message: "df\nvf\nbg\n\nb" }
 
 
-describe('business', () => {
+describe('functional', () => {
     test(`${testName} should submit form`, async () => {
         const { fNameInput, lNameInput, mobile, email, message, form } = setup()
         const fNameRequired = checkRequired(contactUsEntry.firstName)
