@@ -100,7 +100,7 @@ const appointmentEntry =
 }
 
 
-describe('business', () => {
+describe('functional', () => {
     test(`${testName} should submit form`, async () => {
         const { fNameInput, lNameInput, emailInput, mobileInput, ageInput, totalAmountInput, streetNameInput, cityInput, stateInput, countryInput, pinCodeInput, malePreferenceInput, femalePreferenceInput, noPreferenceInput, physioInput1, physioInput2, weeksInput, package1, package2, package3, form } = setup()
         const fNameRequired = checkRequired(appointmentEntry.firstName)
