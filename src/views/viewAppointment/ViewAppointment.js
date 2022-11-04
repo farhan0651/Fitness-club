@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import TheContent from "src/containers";
-import TheHeader from "src/containers";
-import TheLayout from "src/containers";
-import TheSidebar from "src/containers";
-import TheFooter from "src/containers";
+import ViewAppointmentView from "./ViewAppointmentView";
 
-const ViewAppointment = () => {
-  const s=axios.get(`http://localhost:3035/allfriends`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
-  return(
-      <div>
-      <TheContent></TheContent>
-      <TheHeader />
-      <TheLayout></TheLayout>
-      <TheSidebar></TheSidebar>
-      <TheFooter></TheFooter>
-      </div>
-  );
+const ViewAppointment = ({children}) => {
+  const [app, setApp] = useState();
+  useEffect(()=>{
+    axios.get("http://localhost:8081/allfriends")
+    .then(resp=>setApp(resp.data))
+    .catch(err=>console.log(err));
+  }, [])
+  //const fields = app && Object.keys(app[0]);
+  //fields={Object.keys(app[0])}
+  return (<>
+  { app &&
+  <ViewAppointmentView data={app} fields={Object.keys(app[0])}/>
+  }
+  </>);
 };
 
 export default ViewAppointment;
