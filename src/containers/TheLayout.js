@@ -6,7 +6,7 @@ import {
   TheFooter
 } from './index'
 
-const TheLayout = () => {
+const TheLayout = ({children}) => {
 
   return (
     <div className="c-app c-default-layout">
